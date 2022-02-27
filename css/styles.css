@@ -1,6 +1,6 @@
 @import url("zeros.css");
 body {
-  background-color: #00002b;
+  background-color: #c3dce4;
 }
 
 .wrapper {
@@ -283,7 +283,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: #00007c;
+  background: #c3dce4;
 }
 
 .mode {
@@ -481,7 +481,7 @@ body {
   pointer-events: none;
   height: 2px;
   width: 30px;
-  background-color: white;
+  background-color: blue;
 }
 .menu__body {
   overflow: hidden;
@@ -501,7 +501,7 @@ body {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 20px;
-  color: white;
+  color: blue;
   transition: 0.5s;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -512,7 +512,7 @@ body {
   white-space: nowrap;
 }
 .menu__body-item:hover {
-  color: lightblue;
+  color: darkblue;
 }
 .menu__open .menu__body-item {
   -webkit-transform: none;
