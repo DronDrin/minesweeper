@@ -1,5 +1,7 @@
-let first, game, gameWidth, gameHeight, lose;
+let first, game, gameWidth, gameHeight, lose, win;
 let mines = 99;
+let minWidth = 0;
+let minutes, seconds;
 $(document).bind('refresh', e => {
     if (first)
         return;
@@ -48,16 +50,30 @@ $(document).bind('refresh', e => {
 });
 $(document).bind('lose', e => {
     lose = true;
-    $('#loseText').show();
+    showEndModule('Вы проиграли!');
 });
 $(document).bind('win', e => {
-    $('#winText').show();
+    win = true;
+    showEndModule('Вы победили!');
 });
-$('#restart').click(() => {
+$('.endModule__newGame').click(newGame);
+$('.menu__burger').click(e => {
+    if ($(e.target).parent().hasClass('menu__open'))
+        $(e.target).parent().removeClass('menu__open');
+    else
+        $(e.target).parent().addClass('menu__open');
+});
+$('.menu__body-item__inmenu').click(inMenu);
+$('.menu__body-item__newgame').click(newGame);
+function newGame() {
     location.reload();
-});
+}
+function inMenu() {
+    location.reload();
+}
 function createGame(width, height) {
-    $('.mines-counter').html('Мин осталось: ' + mines);
+    $('.mines-counter__counter').html(mines);
+    win = false;
     lose = false;
     gameWidth = width;
     gameHeight = height;
@@ -74,16 +90,50 @@ function createGame(width, height) {
     $('#game').append(gameHTML);
     updateSquares();
 }
-createGame(30, 16);
-checkFontSize();
+function selectMode(e) {
+    if (e.target.id == 'easy') {
+        mines = 10;
+        createGame(10, 10);
+        $('.game-app').show();
+    }
+    else if (e.target.id == 'medium') {
+        mines = 40;
+        createGame(16, 16);
+        $('.game-app').show();
+    }
+    else if (e.target.id == 'hard') {
+        mines = 99;
+        createGame(30, 16);
+        $('.game-app').show();
+    }
+    else if (e.target.id == 'create') {
+        $('.create-out').show();
+    }
+    else if (e.target.id == 'createButton') {
+        mines = $('.create__mines').val();
+        createGame($('.create__width').val(), $('.create__height').val());
+        $('.game-app').show();
+        $('.create-out').hide();
+    }
+    checkFontSize();
+    $('.mode-app').hide();
+}
+
 function updateSquares() {
     let squares = $('.game__item');
-    for (let i = 0; i < squares.length; i++)
-        $(squares[i]).height($(squares[i]).width());
+    let val;
+    if (0.6 * $(window).width() / gameWidth < 0.6 * $(window).height() / gameHeight)
+        val = 0.6 * $(window).width() / gameWidth;
+    else
+        val = 0.6 * $(window).height() / gameHeight;
+    for (let i = 0; i < squares.length; i++) {
+        $(squares[i]).width(val);
+        $(squares[i]).height(val);
+    }
 }
 
 function clickSquare(e) {
-    if (lose)
+    if (lose || win)
         return;
     let match = /game__item__(\d+)_(\d+)/.exec(e.target.classList[1]);
     const x = match[1];
@@ -93,6 +143,8 @@ function clickSquare(e) {
             first = false;
             game = new Game();
             game.createGame(gameWidth, gameHeight, mines, Number.parseInt(x), Number.parseInt(y));
+            seconds = minutes = 0;
+            setTimeout(timeTimer, 1000);
         }
     }
     else {
@@ -104,6 +156,26 @@ function clickSquare(e) {
     return false;
 }
 
+function timeTimer() {
+    if (win || lose)
+        return;
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+    }
+    let time = '';
+    if (minutes < 10)
+        time += '0';
+    time += minutes;
+    time += ':';
+    if (seconds < 10)
+        time += '0';
+    time += seconds;
+    $('.time-counter__counter').html(time);
+    setTimeout(timeTimer, 1000)
+}
+
 function checkMines() {
     let counter = mines;
     const field = game.getPlayerField();
@@ -113,7 +185,7 @@ function checkMines() {
                 counter--;
         }
     }
-    $('.mines-counter').html('Мин осталось: ' + counter);
+    $('.mines-counter__counter').html(counter);
 }
 
 function checkFontSize() {
@@ -128,3 +200,11 @@ $(window).resize(() => {
     updateSquares();
     checkFontSize();
 });
+
+function closeEndModule() {
+    $('.endModule').css({ 'transform': 'translate(-100%, -50%)' });
+}
+function showEndModule(text) {
+    $('.endModule').css({ 'transform': 'translate(0%, -50%)' });
+    $('.endModule__text').html(text);
+}
