@@ -1,4 +1,5 @@
 let first, game, gameWidth, gameHeight, lose;
+let mines = 99;
 $(document).bind('refresh', e => {
     if (first)
         return;
@@ -56,7 +57,7 @@ $('#restart').click(() => {
     location.reload();
 });
 function createGame(width, height) {
-    $('.mines-counter').html('Мин осталось: ' + 99);
+    $('.mines-counter').html('Мин осталось: ' + mines);
     lose = false;
     gameWidth = width;
     gameHeight = height;
@@ -91,7 +92,7 @@ function clickSquare(e) {
         if (e.button == 0) {
             first = false;
             game = new Game();
-            game.createGame(gameWidth, gameHeight, 99, Number.parseInt(x), Number.parseInt(y));
+            game.createGame(gameWidth, gameHeight, mines, Number.parseInt(x), Number.parseInt(y));
         }
     }
     else {
@@ -104,7 +105,7 @@ function clickSquare(e) {
 }
 
 function checkMines() {
-    let counter = 99;
+    let counter = mines;
     const field = game.getPlayerField();
     for (let i = 0; i < field.length; i++) {
         for (let j = 0; j < field[i].length; j++) {
