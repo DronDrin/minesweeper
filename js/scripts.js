@@ -74,7 +74,7 @@ function createGame(width, height) {
     updateSquares();
 }
 createGame(30, 16);
-
+checkFontSize();
 function updateSquares() {
     let squares = $('.game__item');
     for (let i = 0; i < squares.length; i++)
@@ -115,4 +115,15 @@ function checkMines() {
     $('.mines-counter').html('Мин осталось: ' + counter);
 }
 
-$(window).resize(updateSquares);
+function checkFontSize() {
+    let items = $('.game__item');
+    for (let i = 0; i < items.length; i++) {
+        $(items[i]).children().css({ 'font-size': ($(items[i]).height() + 7) + 'px' });
+    }
+}
+
+
+$(window).resize(() => {
+    updateSquares();
+    checkFontSize();
+});

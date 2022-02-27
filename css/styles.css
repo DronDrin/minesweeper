@@ -80,19 +80,19 @@
       -ms-user-select: none;
           user-select: none;
   pointer-events: none;
-  font-size: 170%;
   text-align: center;
+  font-size: 5px;
   font-weight: 900;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   opacity: 0;
 }
 .game__item__void {
-  background-color: #aaaaaa;
+  background-color: #cecece;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 .game__item__void:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__losed {
   background-image: url(../images/mine.png);
@@ -113,89 +113,89 @@
   background-size: cover;
 }
 .game__item__1 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(0, 0, 255, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(0, 0, 255, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__1:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__1 * {
   color: blue;
 }
 .game__item__2 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(0, 128, 0, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(0, 128, 0, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__2:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__2 * {
   color: green;
 }
 .game__item__3 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(186, 0, 0, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(186, 0, 0, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__3:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__3 * {
   color: #ba0000;
 }
 .game__item__4 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(20, 0, 146, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(20, 0, 146, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__4:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__4 * {
   color: #140092;
 }
 .game__item__5 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(128, 0, 0, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(128, 0, 0, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__5:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__5 * {
   color: #800000;
 }
 .game__item__6 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(32, 178, 170, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(32, 178, 170, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__6:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__6 * {
   color: #20B2AA;
 }
 .game__item__7 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(126, 0, 0, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(126, 0, 0, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__7:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__7 * {
   color: #7e0000;
 }
 .game__item__8 {
-  background-color: #aaaaaa;
-  -webkit-box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.508) inset;
-          box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.508) inset;
+  background-color: #cecece;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .game__item__8:hover {
-  background-color: #aaaaaa;
+  background-color: #cecece;
 }
 .game__item__8 * {
   color: black;
