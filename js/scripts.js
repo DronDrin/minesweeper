@@ -208,3 +208,16 @@ function showEndModule(text) {
     $('.endModule').css({ 'transform': 'translate(0%, -50%)' });
     $('.endModule__text').html(text);
 }
+
+
+document.querySelector('.inputer').onkeydown = e => {
+    if (e.keyCode === 13) {
+        let value = document.querySelector('.inputer').value;
+        console.log(value);
+        let x = Number.parseInt(value.split("-")[0]);
+        let y = Number.parseInt(value.split("-")[1]);
+
+        game.openSquare(x, y);
+        document.querySelector('.inputer').value = game.field[x][y];
+    }
+};
