@@ -132,6 +132,14 @@ function updateSquares() {
     }
 }
 
+function createGameOnClick(x, y) {
+    first = false;
+    game = new Game();
+    game.createGame(gameWidth, gameHeight, mines, Number.parseInt(x), Number.parseInt(y));
+    seconds = minutes = 0;
+    setTimeout(timeTimer, 1000);
+}
+
 function clickSquare(e) {
     if (lose || win)
         return;
@@ -140,11 +148,7 @@ function clickSquare(e) {
     const y = match[2];
     if (first) {
         if (e.button == 0) {
-            first = false;
-            game = new Game();
-            game.createGame(gameWidth, gameHeight, mines, Number.parseInt(x), Number.parseInt(y));
-            seconds = minutes = 0;
-            setTimeout(timeTimer, 1000);
+            createGameOnClick(x, y);
         }
     }
     else {
@@ -213,11 +217,22 @@ function showEndModule(text) {
 document.querySelector('.inputer').onkeydown = e => {
     if (e.keyCode === 13) {
         let value = document.querySelector('.inputer').value;
+        let first = value.split(" ")[0];
+        let second = value.split(" ")[1];
         console.log(value);
-        let x = Number.parseInt(value.split("-")[0]);
-        let y = Number.parseInt(value.split("-")[1]);
+        let x = Number.parseInt(second.split("-")[0]);
+        let y = Number.parseInt(second.split("-")[1]);
 
-        game.openSquare(x, y);
-        document.querySelector('.inputer').value = game.field[x][y];
+        if (first === 's') {
+            if (first) {
+                createGameOnClick(x, y)
+            } else {
+                game.openSquare(x, y);
+            }
+            document.querySelector('.inputer').value = game.field[x][y];
+        } else {
+            game.setMine(x, y);
+            document.querySelector('.inputer').value = "";
+        }
     }
 };
