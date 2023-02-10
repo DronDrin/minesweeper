@@ -217,13 +217,13 @@ function showEndModule(text) {
 document.querySelector('.inputer').onkeydown = e => {
     if (e.keyCode === 13) {
         let value = document.querySelector('.inputer').value;
-        let first = value.split(" ")[0];
+        let mark = value.split(" ")[0];
         let second = value.split(" ")[1];
         console.log(value);
         let x = Number.parseInt(second.split("-")[0]);
         let y = Number.parseInt(second.split("-")[1]);
 
-        if (first === 's') {
+        if (mark === 's') {
             if (first) {
                 createGameOnClick(x, y)
             } else {
