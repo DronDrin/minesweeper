@@ -40,14 +40,15 @@ class Game {
             return [];
         let opened = this.openSquareNoCheckWin(x, y);
         this.refresh();
-        return opened;
         for (let i = 0; i < this.fieldPlayer.length; i++) {
             for (let j = 0; j < this.fieldPlayer[i].length; j++) {
-                if (this.fieldPlayer[i][j] == -1 && this.field[i][j] != 9)
-                    return [];
+                if (this.fieldPlayer[i][j] == -1 && this.field[i][j] != 9) {
+                    return opened;
+                }
             }
         }
         this.win();
+        return opened;
     }
 
     openSquareNoCheckWin(x, y) {
